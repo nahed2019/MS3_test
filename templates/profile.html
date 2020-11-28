@@ -1,0 +1,71 @@
+{% extends "base.html" %} {% block content %}
+
+<div class="row">
+	<div class="col s12 m8 offset-m2 ">
+		<div class="card-panel custum-pastel">
+			<h3 class="center-align ">
+				{{ username }}'s Profile
+			</h3>
+		</div>
+	</div>
+</div>
+<section class="container-fluid bg-section-about">
+	<div class="row">
+		<div class="card col s12 m6">
+			<h3 class="uppercase"> personal information</h3>
+			{% for info in basic_info %}
+			{% if session.user|lower == info.created_by|lower %}
+
+			<h2> {{ info.first_name }} {{ info.last_name }}</h2><br />
+			<h3>{{info.phone}}</h3><br />
+			<h3>{{info.email}}</h3><br />
+			<h3>{{info.cur_title}}</h3><br />
+			<h3>{{info.certification_name}}</h3><br />
+			<h3>{{info.about_me}}</h3><br />
+
+                {% endif%} {% endfor %}
+        </div>
+			<div class="card col s12 m6">
+				<h3 class="uppercase"> skills list</h3>
+				{% for skill in skills %}
+				{% if session.user|lower == skill.created_by|lower %}
+				<div class="progress " style="height: 20px;">
+					<div class="progress-bar" role="progressbar" aria-valuenow="{{skill.percent}}" aria-valuemin="0"
+						aria-valuemax="100" style="width:{{skill.percent}}%;">
+						<span class="sr-only">{{skill.percent}}% complete</span>
+					</div>
+					<span class="progress-type">{{ skill.skill_name }}</span>
+				</div>
+
+				{% endif%}
+				{% endfor %}
+			</div>
+	</div>
+		<div class="row">
+			<div class="card col s12 m6">
+				<h3 class="uppercase"> projects</h3>
+				{% for project in projects %}
+				{% if session.user|lower == project.created_by|lower %}
+				<h2> {{ project.project_name }} </h2><br />
+				<h3>{{project.project_desc}}</h3><br />
+				<h3>{{project.project_img}}</h3><br />
+                {% endif%}
+             {% endfor %}
+        </div>
+				<div class="card col s12 m6 custum-teal">
+					<h3 class="uppercase"> Work Experience</h3>
+					{% for work in works %}
+					{% if session.user|lower == work.created_by|lower %}
+                        <div class="history-items">
+                            <div class="timeline-item" data-dates="{{ work.from_date }} - {{ work.to_date }}">
+                                <h4>{{ work.company_name }}</h4>
+                                <p>{{ work.job_title }}</p>
+                            </div>
+                        </div>
+					{% endif%}
+					{% endfor %}
+				</div>
+			</div>
+</section>
+
+{% endblock %}

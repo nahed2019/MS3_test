@@ -1,0 +1,22 @@
+[{
+        "project_name": "Ember",
+        "project_description": "This is a main website for the portfolio of a Computational Designer giving introduction about person",
+        "project_image": "http://www.panhistoria.com/Stacks/Novels/characterimages/T27293.jpg",
+        "live_url": "https://nahed2019.github.io/My-Dream-Holiday/",
+        "github_url":"https://github.com/nahed2019/copy-of-portfolio-2020"
+    },
+    {
+        "project_name": "My-Dream-Holiday",
+        "project_description": "This is the main marketing website for My Dream Holiday. It is designed to be responsibe and accessible on a range of devices, making it easy to navigate for potential travel lover.",
+        "project_image": "https://github.com/nahed2019/My-Dream-Holiday/blob/master/assets/images/best-travel1.jpg",
+        "live_url": "https://nahed2019.github.io/My-Dream-Holiday/",
+        "github_url":""
+    },
+    {
+        "project_name": "JobBass",
+        "project_description": "this projects was created by me, Nahed Alsayed Ahmad, to be my portfolio with my latest projects and information about me and my skillset.",
+        "project_image": "http://www.panhistoria.com/Stacks/Novels/characterimages/T27293.jpg",
+        "live_url": "https://nahed2019.github.io/My-Dream-Holiday/",
+        "github_url":""
+    }]
+    

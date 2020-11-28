@@ -1,0 +1,60 @@
+<section id="about-link" class="container-fluid about-container">
+  <div>
+     <h1 class="claret-colour">About Me</h1>
+  </div>
+  <div class="row">
+     <div class="portrait-container col-md-12 col-lg-6">
+        <img class="portrait" src="static/images/Mariana.png" alt="Mariana's profile picture"/>
+     </div>
+     <div class="about-p-container col-md-12 col-lg-6">
+        <p class="about-p siena-colour">
+           I am a junior software developer based in London, who is seeking to establish a career as a full-stack developer.
+           I love writing code, solve problems and explore new languages.<br />
+           I believe anything can be achieved through commitment and hard work.
+        </p>
+     </div>
+  </div>
+  <div class="skillset">
+     <h3 class="wine-colour">Skillset</h3>
+     {% if 'username' in session %}
+     <a href="{{url_for('skills', skill_id=skill._id)}}" class="btn btn-colour" aria-label="Add skill"
+        >Add Skill
+     <span><i class="fas fa-user-edit prefix" aria-hidden="true"></i></span
+        ></a>
+     {% endif %}
+  </div>
+  <!-- Progress Circle - tutorial from https://bootstrapious.com/p/circular-progress-bar -->
+  <div class="row progress-container">
+     {% for skill in skills %}
+     <div class="col mb-4">
+        <!-- Skills Progress -->
+        <div class="progress mx-auto" data-value="{{skill.percent}}">
+           <span class="progress-left">
+           <span class="progress-circle {{skill.colour}}"></span>
+           </span>
+           <span class="progress-right">
+           <span class="progress-circle {{skill.colour}}"></span>
+           </span>
+           <div class="progress-value">
+              <div>
+                 <i class="{{skill.icon}} {{skill.colour}} progress-icon"></i>
+              </div>
+           </div>
+        </div>
+        <p class="progress-p siena-colour">
+           {{skill.skill_name}} {{skill.percent}}<sup class="small">%</sup>
+        </p>
+        {% if 'username' in session %}
+        <a href="{{url_for('update_skill', skill_id=skill._id)}}" class="btn btn-colour" aria-label="Edit skill"
+           >Edit
+        <span><i class="fas fa-user-edit prefix" aria-hidden="true"></i></span
+           ></a>
+        <a href="{{url_for('delete_skill', skill_id=skill._id)}}" class="btn btn-colour" id="delete-btn" aria-label="Delete skill"
+           >Delete
+        <span><i class="fas fa-user-edit prefix" aria-hidden="true"></i></span
+           ></a>
+        {% endif %}
+     </div>
+     {% endfor %}
+  </div>
+</section>

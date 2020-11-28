@@ -3,9 +3,242 @@
 }
 
 .custum-red {
-    color: #ee6e73;
+    background-color: #ee6e73;
+}
+
+.custum-cyan {
+    background-color: #4a6274;
+}
+
+.custum-pastel {
+    background-color: #f3a7a7;
+}
+
+.custum-teal {
+    background-color: #79aeb2;
+}
+
+.custum-blue {
+    background-color: #94acbf;
+}
+
+.custum-orange {
+    background-color: #e2725a;
 }
 
 .flashes h4 {
     line-height: 2;
 }
+
+nav {
+  position: fixed !important;
+  top: 0;
+  z-index: 9999;
+  width: 100%;
+}
+
+.portrait {
+  max-height: 250px;
+  max-width: 250px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 50% !important;
+}
+
+.align-header{
+    text-align: center;
+}
+
+.about-p-container {
+  align-items: center;
+  display: flex;
+  margin-top: 30px;
+}
+
+.portrait-container {
+  margin-top: 30px;
+}
+
+.about-p {
+  font-size: 1.125rem;
+  text-align: left;
+  line-height: 2;
+}
+
+/*-- Skillset --*/
+
+.progress-container {
+  margin-top: 2.1875rem;
+}
+
+.progress-p {
+  font-size: 0.9375rem;
+  margin-top: 0.625rem;
+}
+
+.progress-icon {
+  font-size: 2.8125rem;
+}
+
+.html-clr{
+    color: yellow;
+}
+
+.css-clr{
+    color: purple;
+}
+
+.js-clr{
+    color: red;
+}
+
+.python-clr{
+    color: blue;
+}
+
+.sql-clr{
+    color: greenyellow;
+}
+
+.skillset{
+   align-items: center; 
+}
+
+.progress-container{
+    padding: 25px;
+}
+
+.my_progress {
+  width: 100px;
+  height: 100px;
+  background: none;
+  position: relative;
+}
+
+.my_progress::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 10px solid #eee;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.my_progress>span {
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  z-index: 1;
+}
+
+.my_progress .progress-left {
+  left: 0;
+}
+
+.my_progress .progress-bar {
+  width: 100%;
+  height: 100%;
+  background: none;
+  border-width: 10px;
+  border-style: solid;
+  position: absolute;
+  top: 0;
+}
+
+.my_progress .progress-left .progress-bar {
+  left: 100%;
+  border-top-right-radius: 80px;
+  border-bottom-right-radius: 80px;
+  border-left: 0;
+  -webkit-transform-origin: center left;
+  transform-origin: center left;
+}
+
+.my_progress .progress-right {
+  right: 0;
+}
+
+.my_progress .progress-right .progress-bar {
+  left: -100%;
+  border-top-left-radius: 80px;
+  border-bottom-left-radius: 80px;
+  border-right: 0;
+  -webkit-transform-origin: center right;
+  transform-origin: center right;
+}
+
+
+.progress-value {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 25%;
+  box-sizing: border-box;
+}
+
+.progress {
+    position: relative;
+    height: 25px;
+    margin-bottom: 4px;
+}
+
+.progress-type {
+    position: absolute;
+    left: 0px;
+    font-weight: 400;
+    padding: 3px 30px 2px 10px;
+    color: #fafafa;
+    background-color: rgba(25, 25, 25, 0.2);
+}
+
+.history-heading {
+    color: #fafafa;
+    margin-bottom: 50px;
+}
+
+.timeline-item {
+    padding: 4em 2em 0em 2em;
+    position: relative;
+    color: #fafafa;
+    border-left: 1px solid;
+}
+
+.timeline-item p {
+    padding: 0;
+    margin: 0;
+}
+
+.timeline-item:before {
+    content: attr(data-dates);
+    position: absolute;
+    left: 2.5em;
+    top: 3em;
+    display: block;
+    font-family: "Exo", sans-serif;
+    font-weight: 500;
+    font-size: 0.8em;
+    padding: 0;
+    margin: 0;
+}
+
+.timeline-item:after {
+    width: 12px;
+    height: 12px;
+    display: block;
+    top: 2.4em;
+    position: absolute;
+    left: -6px;
+    border-radius: 12px;
+    content: '';
+    background: #fafafa;
+}
+
+.history-items {
+    margin-bottom: 30px;
+}
+

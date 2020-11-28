@@ -12,6 +12,14 @@
     />
     <link
       rel="stylesheet"
+      href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css"
+      integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX"
+      crossorigin="anonymous"
+      type="text/css"
+    />
+
+    <link
+      rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
       type="text/css"
     />
@@ -27,21 +35,34 @@
     <header>
       <!-- top navbar -->
       <div class="navbar-fixed">
-        <nav class="nav-extended text-shadow">
+        <nav class="nav-extended custum-cyan text-shadow">
           <div class="nav-wrapper">
-            <a href="{{ url_for('index') }}" class="brand-logo"
-              >Profile Manager</a
-            >
-            <a href="#" data-target="mobile-demo" class="sidenav-trigger right"
+            <a href="{{ url_for('index') }}" class="brand-logo">JobPass</a>
+            <a
+              href="{{ url_for('index') }}"
+              data-target="mobile-demo"
+              class="sidenav-trigger right"
               ><i class="fas fa-bars"></i
             ></a>
             <ul class="right hide-on-med-and-down">
               <li><a href="{{ url_for('index') }}">My Profile</a></li>
               <li><a href="#">Profile shop</a></li>
-              <li><a href="#">Manage Profile</a></li>
-              <li><a href="#">Log Out</a></li>
+              {% if session.user %}
+              <li>
+                <a href="{{ url_for('portfolio', username=session['user']) }}"
+                  >New Profile</a
+                >
+              </li>
+              <li>
+                <a href="{{ url_for('profile', username=session['user']) }}"
+                  >Manage Profile</a
+                >
+              </li>
+              <li><a href="{{ url_for('logout') }}">Log Out</a></li>
+              {% else %}
               <li><a href="{{ url_for('login') }}">Log In</a></li>
               <li><a href="{{ url_for('register') }}">Register</a></li>
+              {% endif %}
             </ul>
           </div>
         </nav>
@@ -56,10 +77,22 @@
         </li>
         <li><a href="{{ url_for('index') }}">My Profile </a></li>
         <li><a href="#">Profile shop</a></li>
-        <li><a href="#">Manage Profile</a></li>
-        <li><a href="#">Log Out</a></li>
+        {% if session.user %}
+        <li>
+          <a href="{{ url_for('portfolio', username=session['user']) }}"
+            >New Profile</a
+          >
+        </li>
+        <li>
+          <a href="{{ url_for('profile', username=session['user']) }}"
+            >Manage Profile</a
+          >
+        </li>
+        <li><a href="{{ url_for('logout') }}">Log Out</a></li>
+        {% else %}
         <li><a href="{{ url_for('login') }}">Log In</a></li>
         <li><a href="{{ url_for('register') }}">Register</a></li>
+        {% endif %}
       </ul>
     </header>
 
@@ -68,19 +101,29 @@
       {% with messages = get_flashed_messages() %} {% if messages %} {% for
       message in messages %}
       <div class="row flashes">
-        <h4 class="pink lighten-5 center-align">{{ message }}</h4>
+        <h4 class="custum-blue center-align">{{ message }}</h4>
       </div>
       {% endfor %} {% endif %} {% endwith %}
     </section>
 
     <main class="container">{% block content %} {% endblock %}</main>
-
+    
     <script
       src="https://code.jquery.com/jquery-3.5.1.min.js"
       integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
       crossorigin="anonymous"
     ></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script
+      src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js"
+      integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js"
+      integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9"
+      crossorigin="anonymous"
+    ></script>
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
     {% block scripts %} {% endblock %}
   </body>

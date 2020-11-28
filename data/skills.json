@@ -1,0 +1,31 @@
+[{
+        "skill_name": "HTML",
+        "percent" : "85",
+        "icon": "fab fa-html5",
+        "colour": "html-clr"
+    },
+    {
+        "skill_name": "CSS",
+        "percent" : "80",
+        "icon": "fab fa-css3",
+        "colour": "css-clr"
+    },
+    {
+        "skill_name": "JS",
+        "percent" : "35",
+        "icon": "fab fa-js",
+        "colour": "js-clr"
+    },
+    {
+        "skill_name": "PYTHON/Flask",
+        "percent" : "45",
+        "icon": "fab fa-python",
+        "colour": "python-clr"
+    },
+    {
+        "skill_name": "SQL-MongoDB",
+        "percent" : "40",
+        "icon": "fas fa-database",
+        "colour": "sql-clr"
+    }]
+    

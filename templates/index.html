@@ -1,8 +1,85 @@
-{% extends "base.html" %}
-{% block content %}
-    {% for project in projects %}
-        {{project.project_name}}<br>
-        {{project.project_desc}}
-    {%endfor%}
-            
-{%endblock%}
+{% extends "base.html" %} {% block content %}
+
+<section class="card container-fluid grey lighten-3 ">
+  <div>
+    <h1 class="align-header">About Me</h1>
+  </div>
+  <div class="row">
+    <div class="portrait-container col s12 m4 ">
+      <img
+        class="portrait"
+        src="static/imgs/Nahed.jpg"
+        alt="Nahed's profile picture"
+      />
+    </div>
+    <div class="about-p-container col s12 m8">
+      <p class="about-p ">
+        I am a junior software developer based in Berlin, who is seeking to
+        establish a career as a full-stack developer. I love writing code, solve
+        problems and explore new languages.<br />
+        I believe anything can be achieved through commitment and hard work.
+      </p>
+    </div>
+  </div>
+  <div class="skillset">
+     <h3 class="align-header">Skill List</h3>
+  </div>
+     <!-- Progress Circle - tutorial from https://bootstrapious.com/p/circular-progress-bar -->
+  <div class="row progress-container">
+     {% for skill in skills %}
+     <div class="col s6 m2">
+        <!-- Skills Progress -->
+        <div class="my_progress mx-auto" data-value="{{skill.percent}}">
+          <span class="progress-left">
+                        <span class="progress-bar {{skill.colour}}"></span>
+          </span>
+          <span class="progress-right">
+                        <span class="progress-bar {{skill.colour}}"></span>
+          </span>
+          <div class="progress-value">
+              <div>
+                 <i class="{{skill.icon}} {{skill.colour}} progress-icon"></i>
+              </div>
+           </div>
+        </div>
+        <p class="progress-p siena-colour">
+           {{skill.skill_name}} {{skill.percent}}<sup class="small">%</sup>
+        </p>
+     </div>
+        <!-- END -->
+     {% endfor %}
+  </div>
+</section>
+<section  class="card container-fluid grey lighten-3 projects-container">
+  <h1 class="align-header">Portfolio</h1>
+  <h4 class="align-header ">
+     Here are a few projects that I've worked on recently.
+  </h4>
+  {% for project in projects %}
+  <!-- Projects -->
+  <div class="row ">
+     <div class="col s12 m4">
+         <a href="{{project.live_url}}" rel="noopener" target="_blank" aria-label="{{project.project_name}} live website"><img class="project-img" src="{{project.project_image}}" alt="{{project.project_name}} image" /></a>
+     </div>
+     <div class=" col s12 m8 ">
+        <h3 class="projects-p grape-colour project-name ">
+           {{project.project_name}}
+        </h3>
+        <p>
+           {{project.project_description}}
+        </p>
+        <ul class="list-inline social-links">
+           <li class="list-inline-item">
+              <a class="social-btn" href="{{project.github_url}}" rel="noopener" target="_blank" aria-label="{{project.project_name}} Github repository"><i class="fab fa-github" aria-hidden="true"></i></a>
+           </li>
+           <li class="list-inline-item">
+              <a class="social-btn" href="{{project.live_url}}" rel="noopener" target="_blank" aria-label="{{project.project_name}} live website"><i class="fas fa-globe" aria-hidden="true"></i></a>
+           </li>
+        </ul>
+     </div>
+  </div>
+  <div class="divider"></div>
+  {% endfor %}
+</section>
+
+{% endblock %}

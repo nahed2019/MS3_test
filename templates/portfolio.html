@@ -1,0 +1,349 @@
+{% extends "base.html" %} {% block content %}
+
+<h3 class="grey-text text-darken-4 center-align">Add Your Profile</h3>
+
+<ul class="collapsible">
+  <li>
+    <div class="collapsible-header white-text custum-teal text-shadow">
+      <i class="fas fa-caret-down"></i>
+      <strong>Add Your Basic Information</strong>
+    </div>
+    <div class="collapsible-body">
+      <div class="row">
+        <form class="col s12" method="POST" action=" {{url_for('basic_info')}}">
+          <!--first name -->
+          <div class="row">
+            <div class="input-field col s12">
+              <i class="fas fa-user-circle prefix text-darken-4"></i>
+              <input
+                id="first_name"
+                name="first_name"
+                type="text"
+                class="validate"
+              />
+              <label for="first_name">First Name</label>
+            </div>
+          </div>
+          <!--last name -->
+          <div class="row">
+            <div class="input-field col s12">
+              <i class="fas fa-user-circle prefix text-darken-4"></i>
+              <input
+                id="last_name"
+                name="last_name"
+                type="text"
+                class="validate"
+              />
+              <label for="last_name">Last Name</label>
+            </div>
+          </div>
+          <!-- phon -->
+          <div class="row">
+            <div class="input-field col s12">
+              <i class="fas fa-phone prefix text-darken-4"></i>
+              <input id="phone" name="phone" type="tel" class="validate" />
+              <label for="phone">Telephone</label>
+            </div>
+          </div>
+          <!-- email -->
+          <div class="row">
+            <div class="input-field col s12">
+              <i class="fas fa-envelope prefix text-darken-4"></i>
+              <input id="email" name="email" type="email" class="validate" />
+              <label for="email">Email</label>
+            </div>
+          </div>
+          <!-- job -->
+          <div class="row">
+            <div class="input-field col s12">
+              <i class="fas fa-hard-hat prefix text-darken-4"></i>
+              <input
+                id="cur_title"
+                name="cur_title"
+                type="text"
+                class="validate"
+              />
+              <label for="cur_title">Job Title </label>
+            </div>
+          </div>
+          <!-- certification_name -->
+          <div class="row">
+            <div class="input-field col s12">
+              <i class="fas fa-graduation-cap prefix text-darken-4"></i>
+              <input
+                id="certification_name"
+                name="certification_name"
+                type="text"
+                class="validate"
+              />
+              <label for="certification_name"> Certification </label>
+            </div>
+          </div>
+          <!-- About description -->
+          <div class="row">
+            <div class="input-field col s12">
+              <i class="fas fa-align-left prefix text-darken-4"></i>
+              <textarea
+                id="about_me"
+                name="about_me"
+                minlength="5"
+                maxlength="200"
+                class="materialize-textarea validate"
+                required
+              ></textarea>
+              <label for="about_me">About Me</label>
+            </div>
+          </div>
+          <!-- submit button -->
+          <div class="row">
+            <div class="col s12 center-align">
+              <button type="submit" class="btn-large custum-teal text-shadow">
+                Add Your Basic Information
+                <i class="fas fa-plus-square right"></i>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </li>
+</ul>
+<ul class="collapsible">
+  <li>
+    <div class="collapsible-header white-text custum-pastel text-shadow">
+      <i class="fas fa-caret-down"></i>
+      <strong>Add Your Projects Information</strong>
+    </div>
+    <div class="collapsible-body">
+      <div class="row">
+        <form class="col s12" method="POST" action="{{url_for('add_project')}}">
+          <div class="row">
+            <div class="input-field col s12">
+              <i class="fas fa-project-diagram prefix text-darken-4"></i>
+              <input
+                id="project_name"
+                name="project_name"
+                type="text"
+                class="validate"
+              />
+              <label for="project_name">Project Name</label>
+            </div>
+            <!-- task description -->
+            <div class="row">
+              <div class="input-field col s12">
+                <i class="fas fa-align-left prefix text-darken-4"></i>
+                <textarea
+                  id="project_desc"
+                  name="project_desc"
+                  minlength="5"
+                  maxlength="200"
+                  class="materialize-textarea validate"
+                  required
+                ></textarea>
+                <label for="project_desc">Project Description</label>
+              </div>
+            </div>
+            <div class="input-field col s12">
+              <i class="fas fa-image prefix text-darken-4"></i>
+              <input
+                id="project_image"
+                name="project_image"
+                type="text"
+                class="validate"
+              />
+              <label for="project_image"> Project Image</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col s12 center-align">
+              <button type="submit" class="btn-large custum-pastel text-shadow">
+                Add Your Project Information
+                <i class="fas fa-plus-square right"></i>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </li>
+</ul>
+<ul class="collapsible">
+  <li>
+    <div class="collapsible-header white-text custum-cyan text-shadow">
+      <i class="fas fa-caret-down"></i>
+      <strong>Add Your Work Experience</strong>
+    </div>
+    <div class="collapsible-body">
+      <div class="row">
+        <form
+          class="col s12"
+          method="POST"
+          action="{{url_for('work_experience')}}"
+        >
+          <div class="row">
+            <div class="input-field col s12">
+              <i class="fas fa-hard-hat prefix text-darken-4"></i>
+              <input
+                id="job_title"
+                name="job_title"
+                type="text"
+                class="validate"
+              />
+              <label for="job_title">Job Title</label>
+            </div>
+            <div class="input-field col s12">
+              <i class="fas fa-building prefix text-darken-4"></i>
+              <input
+                id="company_name"
+                name="company_name"
+                type="text"
+                class="validate"
+              />
+              <label for="company_name">Company Name</label>
+            </div>
+            <div class="row">
+              <div class="input-field col s6">
+                <i class="fas fa-calendar-alt prefix text-darken-4"></i>
+                <input
+                  id="from_date"
+                  name="from_date"
+                  type="text"
+                  class="datepicker validate"
+                  required
+                />
+                <label for="from_date">From Date</label>
+              </div>
+              <div class="input-field col s6">
+                <i class="fas fa-calendar-alt prefix text-darken-4"></i>
+                <input
+                  id="to_date"
+                  name="to_date"
+                  type="text"
+                  class="datepicker validate"
+                  required
+                />
+                <label for="to_date">To Date</label>
+              </div>
+            </div>
+          </div>
+          <!-- submit button -->
+          <div class="row">
+            <div class="col s12 center-align">
+              <button type="submit" class="btn-large custum-cyan text-shadow">
+                Add Your Work Experience
+                <i class="fas fa-plus-square right"></i>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </li>
+</ul>
+<ul class="collapsible">
+  <li>
+    <div class="collapsible-header white-text custum-red text-shadow">
+      <i class="fas fa-caret-down"></i>
+      <strong>Add Your skills Information</strong>
+    </div>
+    <div class="collapsible-body">
+      <div class="row">
+        <form class="col s12" method="POST" action=" {{url_for('skills')}}">
+          <div class="row">
+            <div class="input-field col s6">
+              <i class="fas fa-bolt prefix  text-darken-4"></i>
+              <input
+                id="skill_name"
+                name="skill_name"
+                type="text"
+                class="validate"
+              />
+              <label for="skill_name">Skill Name</label>
+            </div>
+            <div class="input-field col s6">
+              <i
+                class="fas fa-percent prefix  text-darken-4"
+              ></i>
+              <input
+                id="percent"
+                name="percent"
+                type="number"
+                class="validate"
+              />
+              <label for="percent">Percent</label>
+            </div>
+          </div>
+          <!-- submit button -->
+          <div class="row">
+            <div class="col s12 center-align">
+              <button
+                type="submit"
+                class="btn-large custum-red text-shadow"
+              >
+                Add Your Skills Information
+                <i class="fas fa-plus-square right"></i>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </li>
+</ul>
+<ul class="collapsible">
+  <li>
+    <div class="collapsible-header white-text custum-blue text-shadow">
+      <i class="fas fa-caret-down"></i>
+      <strong>Add Your Languages Information</strong>
+    </div>
+    <div class="collapsible-body">
+      <div class="row">
+        <form class="col s12" method="POST" action=" {{url_for('languages')}}">
+          <div class="row">
+            <div class="input-field col s6">
+              <i class="fas fa-bolt prefix  text-darken-4"></i>
+              <input
+                id="language_name"
+                name="language_name"
+                type="text"
+                class="validate"
+              />
+              <label for="language_name">Language Name</label>
+            </div>
+            <div class="input-field col s6">
+              <i
+                class="fas fa-percent prefix  text-darken-4"
+              ></i>
+              <input
+                id="language_level"
+                name="language_level"
+                type="text"
+                class="validate"
+              />
+              <label for="language_level">Language Level</label>
+            </div>
+          </div>
+          <!-- submit button -->
+          <div class="row">
+            <div class="col s12 center-align">
+              <button
+                type="submit"
+                class="btn-large custum-blue text-shadow"
+              >
+                Add Your Languages Information
+                <i class="fas fa-plus-square right"></i>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </li>
+</ul>
+
+<div class="row">
+<p> now you can check your profile </p>
+</div>
+
+
+{% endblock %}
